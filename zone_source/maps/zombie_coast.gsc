@@ -285,7 +285,7 @@ coast_spawn_init_delay(director)
 	//wait(30.0);
 	
 	flag_set( "spawn_zombies");
-	IPrintLnBold("^2WaffeInTheBox ^7by ^6Evelyn <3");
+	IPrintLnBold("^2WaffeInTheBox V2 ^7by ^6Evelyn <3");
 }
 
 	
