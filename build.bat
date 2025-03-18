@@ -4,11 +4,16 @@ set OAT_BASE=%cd%\oat
 set MOD_BASE=%cd%
 
 if not exist "%OAT_BASE%" (
-    echo The latest OpenAssetTools release is not in the "oat" folder.
-    echo Download it from: https://github.com/Laupetin/OpenAssetTools/releases/latest/download/oat-windows.zip
+    echo Downloading OpenAssetTools...
+    powershell -Command "Invoke-WebRequest -Uri https://github.com/Laupetin/OpenAssetTools/releases/latest/download/oat-windows.zip -OutFile oat-windows.zip"
+    
+    echo Extracting OpenAssetTools...
+    powershell -Command "Expand-Archive -Path oat-windows.zip -DestinationPath %OAT_BASE% -Force"
+    
+    del oat-windows.zip
+    
+    echo OpenAssetTools has been successfully downloaded and extracted.
     echo.
-    pause
-    exit
 )
 
 "%OAT_BASE%\Linker.exe" ^
